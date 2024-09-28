@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Password Validator</title>
+    <script>
+        function validatePassword() {
+            // Prompt user to enter a password
+            let password = prompt("Enter a password:");
+
+            // Initialize an array to hold error messages
+            let errors = [];
+
+            // Check if the password is at least 6 characters long
+            if (password.length < 6) {
+                errors.push("Password must be at least 6 characters long.");
+            }
+
+            // Check if the password contains both letters and numbers
+            if (!/[A-Za-z]/.test(password) || !/\d/.test(password)) {
+                errors.push("Password must contain both letters and numbers.");
+            }
+
+            // Display success or error messages
+            if (errors.length === 0) {
+                alert("Password is valid!");
+            } else {
+                alert("Password is invalid:\n" + errors.join("\n"));
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1>Password Validator</h1>
+    <button onclick="validatePassword()">Validate Password</button>
+</body>
+</html>
